@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curator Collective LLC</title>
+<style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; }
+    header, footer { background: #333; color: white; padding: 10px 20px; text-align: center; }
+    main { padding: 20px; }
+    section { margin-bottom: 20px; }
+    .gallery { display: flex; flex-wrap: wrap; }
+    .gallery div { flex: 1 1 21%; margin: 5px; padding: 10px; background: #f0f0f0; }
+    button { background: #007BFF; color: white; border: none; padding: 10px 20px; cursor: pointer; }
+</style>
+</head>
+<body>
+<header>
+    <h1>Curator Collective LLC</h1>
+    <p>Connecting Artists and Communities</p>
+</header>
+<main>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Curator Collective partners with artists to create unique NFT collections linked to physical artworks.</p>
+    </section>
+    <section id="collections">
+        <h2>Our Collections</h2>
+        <div class="gallery">
+            <div><strong>Maradona Series</strong><p>Explore the legend of Maradona through unique NFTs.</p></div>
+            <div><strong>Messi Magic</strong><p>Experience the magic of Messi with exclusive artworks.</p></div>
+        </div>
+    </section>
+    <section id="community">
+        <h2>Community Interaction</h2>
+        <p>Join our community to vote on upcoming artwork decisions.</p>
+        <button onclick="alert('Thank you for your interest!')">Join Now</button>
+    </section>
+    <section id="blog">
+        <h2>Blog & News</h2>
+        <p>Stay updated with the latest news and articles.</p>
+    </section>
+</main>
+<footer>
+    <p>Contact Us: info@curatorcollective.com</p>
+</footer>
+<script>
+    // Simple interaction example
+    document.getElementById('community').addEventListener('click', function() {
+        alert('Welcome to our community page!');
+    });
+</script>
+</body>
+</html>
