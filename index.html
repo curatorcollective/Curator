@@ -9,15 +9,20 @@
     header, footer { background: #333; color: white; padding: 10px 20px; text-align: center; }
     main { padding: 20px; }
     section { margin-bottom: 20px; }
-    .gallery { display: flex; flex-wrap: wrap; }
-    .gallery div { flex: 1 1 21%; margin: 5px; padding: 10px; background: #f0f0f0; }
+    .gallery div { margin: 5px; padding: 10px; background: #f0f0f0; }
     button { background: #007BFF; color: white; border: none; padding: 10px 20px; cursor: pointer; }
+    .social-links a { margin-right: 10px; color: #007BFF; text-decoration: none; }
 </style>
 </head>
 <body>
 <header>
     <h1>Curator Collective LLC</h1>
     <p>Connecting Artists and Communities</p>
+    <div class="social-links">
+        <a href="https://discord.com">Discord</a>
+        <a href="https://twitter.com">Twitter</a>
+        <a href="https://instagram.com">Instagram</a>
+    </div>
 </header>
 <main>
     <section id="about">
@@ -26,9 +31,20 @@
     </section>
     <section id="collections">
         <h2>Our Collections</h2>
-        <div class="gallery">
-            <div><strong>Maradona Series</strong><p>Explore the legend of Maradona through unique NFTs.</p></div>
-            <div><strong>Messi Magic</strong><p>Experience the magic of Messi with exclusive artworks.</p></div>
+        <div>
+            <a href="https://gamma.io/collections/future-of-money">Future of Money</a>
+            <a href="https://stacks.gamma.io/collections/maradona">Maradona</a>
+            <a href="https://stacks.gamma.io/collections/nfts-for-peace">NFTs for Peace</a>
+            <a href="https://gamma.io/ordinals/collections/messi-ordinals-fractional-painting">Messi</a>
+            <a href="https://gamma.io/collections/borges-mia-bitcoin-fam">Bitcoin Family</a>
+            <a href="https://gamma.io/collections/citycoins-bulls">CityCoins Bulls</a>
+        </div>
+    </section>
+    <section id="artists">
+        <h2>Featured Artists</h2>
+        <div>
+            <a href="https://app.sigle.io/curator.btc/iyvecGy3v9qS7qnKPICuh">MonMon</a>
+            <a href="https://app.sigle.io/curator.btc/uqKPjCXg1Lgp81I8bqMcU">Gonzalo Borges</a>
         </div>
     </section>
     <section id="community">
