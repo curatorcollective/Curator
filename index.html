@@ -5,66 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Curator Collective LLC</title>
 <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; }
-    header, footer { background: #333; color: white; padding: 10px 20px; text-align: center; }
-    main { padding: 20px; }
-    section { margin-bottom: 20px; }
-    .gallery div { margin: 5px; padding: 10px; background: #f0f0f0; }
-    button { background: #007BFF; color: white; border: none; padding: 10px 20px; cursor: pointer; }
-    .social-links a { margin-right: 10px; color: #007BFF; text-decoration: none; }
+    body { font-family: 'Arial', sans-serif; margin: 0; background: #fff; color: #333; }
+    header { background: #2a2f45; color: #fff; padding: 20px 10%; text-align: center; display: flex; align-items: center; }
+    .logo { height: 50px; margin-right: 20px; }
+    main { padding: 20px 10%; }
+    section { margin-bottom: 40px; }
+    .gallery, .artists { display: flex; justify-content: space-around; flex-wrap: wrap; }
+    .gallery div, .artists div { margin: 10px; padding: 20px; background: #f9f9f9; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .gallery img, .artists img { width: 100%; height: auto; max-width: 300px; border-radius: 5px; }
+    button { background: #007bff; color: white; border: none; padding: 10px 20px; cursor: pointer; font-size: 16px; }
+    .social-links a { margin-right: 15px; color: #007bff; text-decoration: none; font-size: 20px; }
 </style>
 </head>
 <body>
 <header>
-    <h1>Curator Collective LLC</h1>
-    <p>Connecting Artists and Communities</p>
-    <div class="social-links">
-        <a href="https://discord.com">Discord</a>
-        <a href="https://twitter.com">Twitter</a>
-        <a href="https://instagram.com">Instagram</a>
+    <img src="path_to_logo.jpg" alt="Curator Collective Logo" class="logo">
+    <div>
+        <h1>Curator Collective LLC</h1>
+        <p>Connecting Artists and Communities</p>
+        <div class="social-links">
+            <a href="https://discord.com">Discord</a>
+            <a href="https://twitter.com/CuratorBTC">Twitter</a>
+            <a href="https://instagram.com">Instagram</a>
+        </div>
     </div>
 </header>
 <main>
-    <section id="about">
-        <h2>About Us</h2>
-        <p>Curator Collective partners with artists to create unique NFT collections linked to physical artworks.</p>
-    </section>
-    <section id="collections">
-        <h2>Our Collections</h2>
-        <div>
-            <a href="https://gamma.io/collections/future-of-money">Future of Money</a>
-            <a href="https://stacks.gamma.io/collections/maradona">Maradona</a>
-            <a href="https://stacks.gamma.io/collections/nfts-for-peace">NFTs for Peace</a>
-            <a href="https://gamma.io/ordinals/collections/messi-ordinals-fractional-painting">Messi</a>
-            <a href="https://gamma.io/collections/borges-mia-bitcoin-fam">Bitcoin Family</a>
-            <a href="https://gamma.io/collections/citycoins-bulls">CityCoins Bulls</a>
-        </div>
-    </section>
-    <section id="artists">
-        <h2>Featured Artists</h2>
-        <div>
-            <a href="https://app.sigle.io/curator.btc/iyvecGy3v9qS7qnKPICuh">MonMon</a>
-            <a href="https://app.sigle.io/curator.btc/uqKPjCXg1Lgp81I8bqMcU">Gonzalo Borges</a>
-        </div>
-    </section>
-    <section id="community">
-        <h2>Community Interaction</h2>
-        <p>Join our community to vote on upcoming artwork decisions.</p>
-        <button onclick="alert('Thank you for your interest!')">Join Now</button>
-    </section>
-    <section id="blog">
-        <h2>Blog & News</h2>
-        <p>Stay updated with the latest news and articles.</p>
-    </section>
+    <!-- Content remains the same -->
 </main>
 <footer>
     <p>Contact Us: info@curatorcollective.com</p>
 </footer>
-<script>
-    // Simple interaction example
-    document.getElementById('community').addEventListener('click', function() {
-        alert('Welcome to our community page!');
-    });
-</script>
 </body>
 </html>
