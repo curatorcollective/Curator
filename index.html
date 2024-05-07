@@ -11,9 +11,38 @@
     .logo { height: 50px; margin-right: 20px; }
     main { padding: 20px 10%; }
     section { margin-bottom: 40px; }
-    .gallery, .artists { display: flex; justify-content: space-around; flex-wrap: wrap; }
-    .gallery div, .artists div { margin: 10px; padding: 20px; background: #f9f9f9; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    .gallery img, .artists img { width: 100%; height: auto; max-width: 300px; border-radius: 5px; }
+    .gallery div, .artists div {
+    position: relative;
+    margin: 10px;
+    width: 300px; /* fixed width for alignment */
+}
+
+.gallery img, .artists img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    border-radius: 5px;
+}
+
+.gallery a, .artists a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black background */
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: calc(100% - 20px); /* slightly smaller than image to fit within borders */
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.gallery div:hover a, .artists div:hover a {
+    background-color: rgba(0, 0, 0, 0.8); /* darker on hover */
+}
     button { background: #007bff; color: white; border: none; padding: 10px 20px; cursor: pointer; font-size: 16px; }
     .social-links a { margin-right: 15px; color: #007bff; text-decoration: none; font-size: 20px; }
     .social-links i { font-size: 24px; color: white; }
@@ -59,7 +88,7 @@
     </section>
     <section id="community">
         <h2>Community Interaction</h2>
-        <p>Join our     <a href="https://discord.gg/XvqJTzZS7K">community</a> to vote on upcoming artwork decisions.</p>
+        <p>Join our <a href="https://discord.gg/XvqJTzZS7K">community</a> to vote on upcoming artwork decisions.</p>
  </div>
     </section>
 </main>
