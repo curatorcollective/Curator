@@ -11,10 +11,20 @@
     .logo { height: 50px; margin-right: 20px; }
     main { padding: 20px 10%; }
     section { margin-bottom: 40px; }
+    
     .gallery div, .artists div {
     position: relative;
     margin: 10px;
     width: 300px; /* fixed width for alignment */
+        
+        .gallery div:nth-child(odd) {
+    margin-top: 0px; /* No additional margin for odd items */
+}
+
+.gallery div:nth-child(even) {
+    margin-top: 20px; /* Adds a margin top for even items */
+}
+
 }
 
 .gallery img, .artists img {
