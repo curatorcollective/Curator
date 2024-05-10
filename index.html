@@ -96,18 +96,23 @@
         color: white;
     }
 
-/* Responsive Design Adjustments */
+/* Ensure there's adequate margin between sections */
+section {
+    margin-bottom: 40px;
+}
+
 @media (max-width: 800px) {
     .gallery div, .artists div {
-        width: calc(50% - 20px); /* Two columns on smaller screens */
+        width: calc(50% - 20px); // Make sure these are not too wide
     }
 }
 
 @media (max-width: 500px) {
     .gallery div, .artists div {
-        width: 100%; /* One column on very small screens */
+        width: 100%; // Single column layout should not be too tight
     }
 }
+
 </style>
 
 </head>
@@ -178,10 +183,10 @@ function initMasonryLayout(selector, reset = false) {
 
     const setItemPositions = () => {
         if (reset) {
-            items.forEach(item => {
-                item.style.position = 'static';
-            });
+            container.style.height = 'auto'; // Reset container height to auto before recalculating
+            columns.fill(0); // Reset columns height
         }
+
         items.forEach((item, index) => {
             if (!reset) {
                 const minHeight = Math.min(...columns);
@@ -193,11 +198,11 @@ function initMasonryLayout(selector, reset = false) {
                 item.style.left = `${x}px`;
                 item.style.top = `${y}px`;
 
-                columns[columnIndex] += item.offsetHeight + 10;
+                columns[columnIndex] += item.offsetHeight + 10; // Update column height
             }
         });
 
-        container.style.height = `${Math.max(...columns)}px`;
+        container.style.height = `${Math.max(...columns)}px`; // Set container height based on the tallest column
     };
 
     const imageLoadPromises = Array.from(images).map(image => 
@@ -213,6 +218,7 @@ function initMasonryLayout(selector, reset = false) {
 
     Promise.all(imageLoadPromises).then(setItemPositions);
 }
+    
 
 </script>
 
