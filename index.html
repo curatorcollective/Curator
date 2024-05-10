@@ -96,18 +96,18 @@
         color: white;
     }
 
-    /* Responsive Design Adjustments */
-    @media (max-width: 800px) {
-        .gallery div, .artists div {
-            width: calc(50% - 20px); /* Two columns on smaller screens */
-        }
+/* Responsive Design Adjustments */
+@media (max-width: 800px) {
+    .gallery div, .artists div {
+        width: calc(50% - 20px); /* Two columns on smaller screens */
     }
+}
 
-    @media (max-width: 500px) {
-        .gallery div, .artists div {
-            width: 100%; /* One column on very small screens */
-        }
+@media (max-width: 500px) {
+    .gallery div, .artists div {
+        width: 100%; /* One column on very small screens */
     }
+}
 </style>
 
 </head>
@@ -160,30 +160,41 @@
 </footer>
    <script>
 document.addEventListener('DOMContentLoaded', function() {
-    applyMasonryLayout('.gallery');
-    applyMasonryLayout('.artists');
+    initMasonryLayout('.gallery');
+    initMasonryLayout('.artists');
+    window.addEventListener('resize', () => {
+        initMasonryLayout('.gallery', true);
+        initMasonryLayout('.artists', true);
+    });
 });
 
-function applyMasonryLayout(selector) {
+function initMasonryLayout(selector, reset = false) {
     const container = document.querySelector(selector);
     const items = Array.from(container.querySelectorAll('div'));
     const images = container.querySelectorAll('img');
-    const numColumns = 3;
-    const columnWidth = container.offsetWidth / numColumns;
+    let numColumns = window.innerWidth > 800 ? 3 : window.innerWidth > 500 ? 2 : 1; 
+    let columnWidth = container.offsetWidth / numColumns;
     let columns = Array(numColumns).fill(0);
 
     const setItemPositions = () => {
+        if (reset) {
+            items.forEach(item => {
+                item.style.position = 'static';
+            });
+        }
         items.forEach((item, index) => {
-            const minHeight = Math.min(...columns);
-            const columnIndex = columns.indexOf(minHeight);
-            const x = columnIndex * columnWidth;
-            const y = minHeight;
+            if (!reset) {
+                const minHeight = Math.min(...columns);
+                const columnIndex = columns.indexOf(minHeight);
+                const x = columnIndex * columnWidth;
+                const y = minHeight;
 
-            item.style.position = 'absolute';
-            item.style.left = `${x}px`;
-            item.style.top = `${y}px`;
+                item.style.position = 'absolute';
+                item.style.left = `${x}px`;
+                item.style.top = `${y}px`;
 
-            columns[columnIndex] += item.offsetHeight + 10;
+                columns[columnIndex] += item.offsetHeight + 10;
+            }
         });
 
         container.style.height = `${Math.max(...columns)}px`;
@@ -195,13 +206,14 @@ function applyMasonryLayout(selector) {
                 resolve();
             } else {
                 image.onload = resolve;
-                image.onerror = resolve;
+                image.onerror = resolve; // also resolve on error to not break the layout
             }
         })
     );
 
     Promise.all(imageLoadPromises).then(setItemPositions);
 }
+
 </script>
 
 </body>
