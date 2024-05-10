@@ -158,13 +158,18 @@
 <footer>
   //  <p>Contact Us: info@curatorcollective.com</p>
 </footer>
-    <script>
+   <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const gallery = document.querySelector('.gallery');
-    const items = Array.from(gallery.querySelectorAll('div'));
-    const images = gallery.querySelectorAll('img');
-    const numColumns = 3; 
-    const columnWidth = gallery.offsetWidth / numColumns;
+    applyMasonryLayout('.gallery');
+    applyMasonryLayout('.artists');
+});
+
+function applyMasonryLayout(selector) {
+    const container = document.querySelector(selector);
+    const items = Array.from(container.querySelectorAll('div'));
+    const images = container.querySelectorAll('img');
+    const numColumns = 3;
+    const columnWidth = container.offsetWidth / numColumns;
     let columns = Array(numColumns).fill(0);
 
     const setItemPositions = () => {
@@ -178,27 +183,26 @@ document.addEventListener('DOMContentLoaded', function() {
             item.style.left = `${x}px`;
             item.style.top = `${y}px`;
 
-            columns[columnIndex] += item.offsetHeight + 10; 
+            columns[columnIndex] += item.offsetHeight + 10;
         });
 
-        gallery.style.height = `${Math.max(...columns)}px`;
+        container.style.height = `${Math.max(...columns)}px`;
     };
 
-    // Check if all images are loaded
     const imageLoadPromises = Array.from(images).map(image => 
         new Promise(resolve => {
             if (image.complete) {
                 resolve();
             } else {
                 image.onload = resolve;
-                image.onerror = resolve; // also resolve on error to not break the layout
+                image.onerror = resolve;
             }
         })
     );
 
     Promise.all(imageLoadPromises).then(setItemPositions);
-});
-
+}
 </script>
+
 </body>
 </html>
