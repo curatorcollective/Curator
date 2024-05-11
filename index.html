@@ -161,64 +161,76 @@ section {
     </section>
 </main>
 <footer>
-  //  <p>Contact Us: info@curatorcollective.com</p>
-</footer>
+
+    </footer>
    <script>
 document.addEventListener('DOMContentLoaded', function() {
     initMasonryLayout('.gallery');
     initMasonryLayout('.artists');
-    window.addEventListener('resize', () => {
+    window.addEventListener('resize', debounce(() => {
         initMasonryLayout('.gallery', true);
         initMasonryLayout('.artists', true);
-    });
+    }, 250)); // Debounce resize to avoid excessive calculations
 });
 
 function initMasonryLayout(selector, reset = false) {
     const container = document.querySelector(selector);
     const items = Array.from(container.querySelectorAll('div'));
     const images = container.querySelectorAll('img');
-    let numColumns = window.innerWidth > 800 ? 3 : window.innerWidth > 500 ? 2 : 1; 
+    let numColumns = window.innerWidth > 800 ? 3 : window.innerWidth > 500 ? 2 : 1;
     let columnWidth = container.offsetWidth / numColumns;
     let columns = Array(numColumns).fill(0);
 
     const setItemPositions = () => {
         if (reset) {
-            container.style.height = 'auto'; // Reset container height to auto before recalculating
-            columns.fill(0); // Reset columns height
+            container.style.height = 'auto';
+            columns.fill(0);
         }
 
-        items.forEach((item, index) => {
-            if (!reset) {
-                const minHeight = Math.min(...columns);
-                const columnIndex = columns.indexOf(minHeight);
-                const x = columnIndex * columnWidth;
-                const y = minHeight;
-
-                item.style.position = 'absolute';
-                item.style.left = `${x}px`;
-                item.style.top = `${y}px`;
-
-                columns[columnIndex] += item.offsetHeight + 10; // Update column height
-            }
+        items.forEach((item) => {
+            item.style.position = 'absolute'; // Ensure positioning is set every time
         });
 
-        container.style.height = `${Math.max(...columns)}px`; // Set container height based on the tallest column
+        items.forEach((item) => {
+            const minHeight = Math.min(...columns);
+            const columnIndex = columns.indexOf(minHeight);
+            const x = columnIndex * columnWidth;
+            const y = minHeight;
+
+            item.style.left = `${x}px`;
+            item.style.top = `${y}px`;
+
+            columns[columnIndex] += item.offsetHeight + 10;
+        });
+
+        container.style.height = `${Math.max(...columns)}px`;
     };
 
-    const imageLoadPromises = Array.from(images).map(image => 
-        new Promise(resolve => {
-            if (image.complete) {
-                resolve();
-            } else {
-                image.onload = resolve;
-                image.onerror = resolve; // also resolve on error to not break the layout
-            }
-        })
-    );
-
-    Promise.all(imageLoadPromises).then(setItemPositions);
+    // Wait for all images to load or fail
+    Promise.all(Array.from(images).map(image => new Promise(resolve => {
+        if (image.complete) {
+            setTimeout(resolve, 100); // Add slight delay for browser rendering
+        } else {
+            image.onload = image.onerror = () => setTimeout(resolve, 100);
+        }
+    }))).then(setItemPositions);
 }
-    
+
+// Debounce function to limit the rate at which a function can fire
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+        var context = this, args = arguments;
+        var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+}
 
 </script>
 
