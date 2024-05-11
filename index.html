@@ -67,6 +67,19 @@
         margin: 10px;
     }
 
+    .gallery div a, .artists div a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: inherit; /* Maintains text color from parent */
+}
+
+.gallery h3, .artists h3 {
+    margin-bottom: 10px; /* Adds space between the title and the image */
+    font-size: 16px; /* Adjust font size as needed */
+}
+
+
     .gallery img, .artists img {
         width: 100%;
         height: auto;
@@ -138,8 +151,7 @@ section {
     <section id="collections">
     <h2>Our Collections</h2>
     <div class="gallery">
-        <!-- Example for a gallery item with clickable image -->
-        <div>
+    
           <div><img src="money.gif" alt="Future of Money"><a href="https://gamma.io/collections/future-of-money">Future of Money</a></div>
             <div><img src="maradona.gif" alt="Maradona"><a href="https://stacks.gamma.io/collections/maradona">Maradona</a></div>
             <div><img src="peace.png" alt="NFTs for Peace"><a href="https://stacks.gamma.io/collections/nfts-for-peace">NFTs for Peace</a></div>
@@ -147,15 +159,15 @@ section {
             <div><img src="family.jpg" alt="Bitcoin Family"><a href="https://gamma.io/collections/borges-mia-bitcoin-fam">Bitcoin Family</a></div>
             <div><img src="bulls.jpg" alt="CityCoins Bulls"><a href="https://gamma.io/collections/citycoins-bulls">CityCoins Bulls</a></div>    
             
-        </div>
-        <!-- Repeat for other items -->
+ 
+
     </div>
 </section>
 
 <section id="artists">
     <h2>Featured Artists</h2>
     <div class="artists">
-        <!-- Example for an artist item with clickable image -->
+    
  <div><img src="monmon.png" alt="MonMon"><a href="https://app.sigle.io/curator.btc/iyvecGy3v9qS7qnKPICuh">MonMon</a></div>
  <div><img src="borges.png" alt="Gonzalo Borges"><a href="https://app.sigle.io/curator.btc/uqKPjCXg1Lgp81I8bqMcU">Gonzalo Borges</a></div>
     </div>
@@ -163,27 +175,6 @@ section {
 
     
     
-    
-    <section id="collections">
-        <h2>Our Collections</h2>
-        <div class="gallery">
-            <!-- Placeholder for images and updated links -->
-            <div><img src="money.gif" alt="Future of Money"><a href="https://gamma.io/collections/future-of-money">Future of Money</a></div>
-            <div><img src="maradona.gif" alt="Maradona"><a href="https://stacks.gamma.io/collections/maradona">Maradona</a></div>
-            <div><img src="peace.png" alt="NFTs for Peace"><a href="https://stacks.gamma.io/collections/nfts-for-peace">NFTs for Peace</a></div>
-            <div><img src="messi.jpg" alt="Messi"><a href="https://gamma.io/ordinals/collections/messi-ordinals-fractional-painting">Messi</a></div>
-            <div><img src="family.jpg" alt="Bitcoin Family"><a href="https://gamma.io/collections/borges-mia-bitcoin-fam">Bitcoin Family</a></div>
-            <div><img src="bulls.jpg" alt="CityCoins Bulls"><a href="https://gamma.io/collections/citycoins-bulls">CityCoins Bulls</a></div>
-        </div>
-    </section>
-    <section id="artists">
-        <h2>Featured Artists</h2>
-        <div class="artists">
-            <!-- Placeholder for artist images and updated links -->
-            <div><img src="monmon.png" alt="MonMon"><a href="https://app.sigle.io/curator.btc/iyvecGy3v9qS7qnKPICuh">MonMon</a></div>
-            <div><img src="borges.png" alt="Gonzalo Borges"><a href="https://app.sigle.io/curator.btc/uqKPjCXg1Lgp81I8bqMcU">Gonzalo Borges</a></div>
-        </div>
-    </section>
     <section id="community">
         <h2>Community Interaction</h2>
         <p>Join our <a href="https://discord.gg/XvqJTzZS7K">community</a> to vote on upcoming artwork decisions.</p>
