@@ -48,9 +48,26 @@
             font-size: 0.9em;
             color: #666;
         }
+        .social-icons a {
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <header style="background-color: white; padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="https://www.curatorbtc.com/">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Curator BTC Logo" style="height: 40px; width: auto;">
+            </a>
+            <div class="social-icons">
+                <a href="https://discord.gg/XvqJTzZS7K" target="_blank" class="me-3" style="color: #5865F2;"><i class="fab fa-discord fa-lg"></i></a>
+                <a href="https://twitter.com/CuratorBTC" target="_blank" class="me-3" style="color: #1DA1F2;"><i class="fab fa-twitter fa-lg"></i></a>
+                <a href="https://www.instagram.com/curatorbtc/" target="_blank" style="color: #E4405F;"><i class="fab fa-instagram fa-lg"></i></a>
+            </div>
+        </div>
+    </header>
+
     <div class="container">
         <div class="profile">
             <img src="images/keeva.jpg" alt="Keeva Profile Picture">
